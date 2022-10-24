@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+{% load static %}
+ 
+{% block body %}
+<style>
+    #create-post{
+    background-color:aliceblue;
+}
+input[type=text]{
+    margin-bottom: 7px;
+}
+
+</style>
+{% if user.is_authenticated %}
+    <div class="container" id="create-post">
+        <h3 id="tagh3">Create a New Post</h3>
+        <hr>
+        <h4>Title:</h4>
+        <form id="new-post-form">
+            {% csrf_token %}
+        <input class="col-12" type="text" name="title" id="title">
+        <div><textarea class="col-12" id="body" cols="30" rows="10"></textarea></div>
+        <input class="btn btn-primary col-12" type="submit" value="Publish">
+        </form>
+    </div>
+{% endif %}
+    <hr>
+
+    <!-- <div class="container" id="posts-profile"> -->
+        <div id="posts">
+        </div>
+
+        <div id="profile">
+        </div>
+
+        <div id="without-login">
+        </div>
+    <!-- </div> -->
+
+
+{% endblock %}
